@@ -78,15 +78,16 @@ function App() {
     }
 
     return (
-        <div className='bg-info min-vh-100 text-white'>
+        <div className='bg-danger min-vh-100 text-white'>
             {/*Drum Machine Container*/}
             <div className='text-center' style={{
                 backgroundColor: '#000000',
                 backgroundImage: 'linear-gradient(315deg, #000000 0%, #414141 74%)',
                 boxShadow: "0px 4px 15px 6px rgba(0,0,0,0.75)",
+                height: '50rem',
                 width: '70rem',
                 position: 'relative',
-                left: '2rem',
+                left: '25rem',
                 top: '5rem',
                 padding: '5rem'
                 }} >
@@ -108,7 +109,7 @@ function App() {
                     className='w-50'
                 />
                 <br />
-                {/*Play Speed Button */}
+                {/*Adjust Speed Button */}
                 <h4 style={{margin: "2rem"}}>Speed</h4>
                 <input
                     type='range'
@@ -119,8 +120,10 @@ function App() {
                     min='0.1'
                     className='w-50'
                 />
+                <div style={{position: 'relative', right: '18rem', bottom: '0.8rem'}}>Faster</div>
+                <div style={{position: 'relative', left: '18rem', bottom: '2.3rem' }}>Slower</div>
                 {/*Playback Keys*/}
-                <h3 style={{margin: "5rem", marginBottom: '5rem'}}>{recording}</h3>
+                <h3 style={{marginBottom: '2rem', fontSize: '3rem'}}>{recording}</h3>
                 
                 {/*Buttons to Play recording & Clear recording*/}
                 <button onClick={playRecording} className='btn btn-success m-3 w-50'>Play</button>
@@ -129,7 +132,7 @@ function App() {
         </div>
     );
 }
-// Pad component 
+// Pad Buttons component 
 function Pad({ clip, volume, setRecording }) {
 
     const [active, setActive] = React.useState(false);
