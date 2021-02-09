@@ -63,6 +63,7 @@ function App() {
     const [recording, setRecording] = React.useState('');
     const [speed, setSpeed] = React.useState(0.5)
 
+    {/*Function to play recording*/}
     const playRecording = () => {
         let index = 0;
         let recordArray = recording.split('');
@@ -78,13 +79,24 @@ function App() {
 
     return (
         <div className='bg-info min-vh-100 text-white'>
-            <div className='text-center'>
-                <h2 style={{padding: "5rem"}}>Drum Machine</h2>
+            {/*Drum Machine Container*/}
+            <div className='text-center' style={{
+                backgroundColor: '#000000',
+                backgroundImage: 'linear-gradient(315deg, #000000 0%, #414141 74%)',
+                boxShadow: "0px 4px 15px 6px rgba(0,0,0,0.75)",
+                width: '70rem',
+                position: 'relative',
+                left: '2rem',
+                top: '5rem',
+                padding: '5rem'
+                }} >
+                <h2 >Drum Machine</h2>
                 {/*Map all audio clips to their respective buttons*/}
                 {audioClips.map((clip) => (
                     <Pad key={clip.id} clip={clip} volume={volume} setRecording={setRecording} />
                 ))}
                 <br />
+                {/*Volume Button */}
                 <h4 style={{margin: "2rem"}}>Volume</h4>
                 <input
                     type='range'
@@ -95,9 +107,8 @@ function App() {
                     min='0'
                     className='w-50'
                 />
-                <button onClick={playRecording} className='btn btn-success'>Play</button>
-                <button onClick={() => setRecording('')} className='btn btn-danger'>Clear</button>
                 <br />
+                {/*Play Speed Button */}
                 <h4 style={{margin: "2rem"}}>Speed</h4>
                 <input
                     type='range'
@@ -108,17 +119,20 @@ function App() {
                     min='0.1'
                     className='w-50'
                 />
-                <h3 style={{margin: "5rem"}}>{recording}</h3>
+                {/*Playback Keys*/}
+                <h3 style={{margin: "5rem", marginBottom: '5rem'}}>{recording}</h3>
+                
+                {/*Buttons to Play recording & Clear recording*/}
+                <button onClick={playRecording} className='btn btn-success m-3 w-50'>Play</button>
+                <button onClick={() => setRecording('')} className='btn btn-danger m-3 w-50'>Clear</button>
             </div>
         </div>
     );
 }
-
+// Pad component 
 function Pad({ clip, volume, setRecording }) {
 
     const [active, setActive] = React.useState(false);
-
-
 
     React.useEffect(() => {
         document.addEventListener('keydown', handleKeyPress);
