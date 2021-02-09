@@ -78,7 +78,8 @@ function App() {
     }
 
     return (
-        <div className='bg-danger min-vh-100 text-white'>
+        <div className='min-vh-100 text-white'
+            style={{backgroundImage: 'linear-gradient(-315deg, #000000 0%, #414141 74%)',}}>
             {/*Drum Machine Container*/}
             <div className='text-center' style={{
                 backgroundColor: '#000000',
@@ -91,7 +92,8 @@ function App() {
                 top: '5rem',
                 padding: '5rem'
                 }} >
-                <h2 >Music Machine</h2>
+                <h2 style={{position: 'relative', bottom: '2rem'}}>Music Machine</h2>
+                <p style={{position: 'relative', bottom: '2rem'}}>Click on the buttons or press the keypad keys start recording!</p>
                 {/*Map all audio clips to their respective buttons*/}
                 {audioClips.map((clip) => (
                     <Pad key={clip.id} clip={clip} volume={volume} setRecording={setRecording} />
