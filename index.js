@@ -91,7 +91,7 @@ function App() {
                 top: '5rem',
                 padding: '5rem'
                 }} >
-                <h2 >Drum Machine</h2>
+                <h2 >Music Machine</h2>
                 {/*Map all audio clips to their respective buttons*/}
                 {audioClips.map((clip) => (
                     <Pad key={clip.id} clip={clip} volume={volume} setRecording={setRecording} />
